@@ -11,7 +11,9 @@ function App() {
       <body>
         <h1>Sudoku</h1>
         <button>Start Game</button>
-        <Board />
+        <div id='board-container'>
+          <Board />
+        </div>
       </body>
     </div>
   );

@@ -1,7 +1,16 @@
 .App {
   text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
-  color: black;
+  color: black; 
+  border: 1px solid black;
+  width: 50%;
+}
+
+#board-container {
+  width: 75%;
 }
