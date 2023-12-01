@@ -1,16 +1,43 @@
 .App {
   text-align: center;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  font-family: 'Nova Square', sans-serif;
+}
+
+body {
+  background-color: #100624;
 }
 
 h1 {
-  color: black; 
-  border: 1px solid black;
-  width: 50%;
+  color: #9de2e3; 
+  width: 100%;
+  text-align: center;
+  font-family: 'Nova Square';
+  font-size: 50px;
+  text-shadow:1px 1px 10px #9de2e3, 1px 1px 10px #9de2e3;
 }
 
-#board-container {
-  width: 75%;
+#page-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+button {
+  width: 120px;
+  height: 50px;
+  margin: 15px;
+  border-radius: 8%;
+  color: #292928;
+  background-color: #9de2e3;
+  font-size: 20px;
+  outline: none;
+  border-style: none;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #100624;
+  color: #9de2e3;
+  border: 1px solid #9de2e3;
 }

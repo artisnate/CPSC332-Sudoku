@@ -2,13 +2,14 @@ import './Board.css';
 import { useState } from "react";
 
 function Board(props) {
-    let[board, setBoard] = useState(Array.from({length: 9}, ()=> Array.from({length: 9}, () => 0)));
+    let[board, setBoard] = useState(props.value);
+    // let[board, setBoard] = useState(Array.from({ length: 9}, () => Array.from({ length: 9}, () => 0)));
 
     const handleBoxChange = (e, row, col) => {
         let newBoard = [...board]; 
         newBoard[row][col] = e.target.value; 
         setBoard(newBoard); 
-        console.log(`row${row} col${col}`);
+        console.log(board); 
     };
 
     return(

@@ -1,7 +1,7 @@
-class Sudoku {
+export default class Sudoku {
     constructor() {
         this.gridSize = 9; // 9x9 board
-        this.removeNum = 61; // number of boxes to be removed
+        this.removeNum = 30; // number of boxes to be removed
 
         const SRNd = Math.sqrt(this.gridSize); 
         this.SRgrid = Math.floor(SRNd); 
@@ -26,7 +26,7 @@ class Sudoku {
         this.playBoard = this.solution; 
         this.removeDigits(); 
 
-        return this.playBoard; 
+        return this.solution; 
     } 
 
     //fills diagonal boxes
@@ -113,7 +113,7 @@ class Sudoku {
 
         //move to next row if we are at end of row 
         if(col === this.gridSize - 1) {
-            row + 1; 
+            row += 1; 
             col = 0; 
         }
 
