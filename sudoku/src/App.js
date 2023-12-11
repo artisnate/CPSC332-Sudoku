@@ -1,12 +1,8 @@
-import './App.css';
+import './css/App.css';
 import Board from './Board'; 
 import Instructions from './Instructions';
-import Sudoku from './Sudoku'; 
 
 function App() {
-  const sudoku = new Sudoku();
-  sudoku.generateAnswers();
-  console.log(sudoku.solution); 
 
   return (
     <div className="App">
@@ -19,15 +15,15 @@ function App() {
       <body>
         <h1>Sudoku</h1>
         <div id='page-container'>
-          <h3>How to play</h3>
+          <h3 id='instruction-title'>How to play</h3>
           <div id='instruction-container'>
             <Instructions />
           </div>
-          <button>Start Game</button>
+          <button id='start-button'>Start Game</button>
           <div id='board-container'>
-            <Board value={sudoku.generatePlayBoard()}/>
+            <Board/>
           </div>
-          <h3>Game History</h3>
+          <h3 id='history-title'>Game History</h3>
           <div id='record-container'></div>
         </div>
       </body>

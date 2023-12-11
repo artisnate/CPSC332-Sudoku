@@ -23,6 +23,37 @@ h1 {
   gap: 10px;
 }
 
+#instruction-title {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#instruction-container {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+#start-button {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+#board-container {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#history-title {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+#record-containter {
+  grid-column: 3;
+  grid-row: 1;
+  border: 1px solid white;
+}
+
 button {
   width: 120px;
   height: 50px;
@@ -40,4 +71,9 @@ button:hover {
   background-color: #100624;
   color: #9de2e3;
   border: 1px solid #9de2e3;
+}
+
+
+h3 {
+  color: #9de2e3;
 }
