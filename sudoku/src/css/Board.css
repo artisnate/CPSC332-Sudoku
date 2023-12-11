@@ -19,3 +19,10 @@ input {
     font-size: x-large;
     text-align: center;
 }
+
+/* removes input arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
