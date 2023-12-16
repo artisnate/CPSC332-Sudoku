@@ -9,7 +9,6 @@ function Board({board, setBoard}) {
             newBoard[row][col] = e.target.value; 
         }
         setBoard(newBoard); 
-        console.log(board); 
     };
 
     return(

@@ -1,6 +1,7 @@
 import './css/App.css';
 import Board from './Board'; 
 import Instructions from './Instructions';
+import Timer from './Timer';
 import { useState } from 'react';
 
 let board_sol = [
@@ -28,7 +29,13 @@ let play_board = [
 ]
 
 function App() {
-  let[board, setBoard] = useState(play_board); 
+  const [board, setBoard] = useState(new Array(9).fill().map(entry => new Array(9).fill(0))); 
+  const [start, setStart] = useState(false); 
+
+  const handleStartButtonClick = () => {
+    setBoard(play_board); 
+    setStart(!start); 
+  }
 
   return (
     <div className="App">
@@ -45,15 +52,17 @@ function App() {
           <div id='instruction-container'>
             <Instructions />
           </div>
-          <button id='start-button'>Start Game</button>
+          <div id='button-timer-container'>
+            <button id='start-button' onClick={() => handleStartButtonClick()}>{start ? "Pause Game" : "Start Game"}</button>
+            <Timer start={start}/>
+          </div>
           <div id='board-container'>
-            <Board board={board} setBoard={setBoard}/>
+          <Board board={board} setBoard={setBoard}/>
           </div>
           <h2 id='history-title'>Game History</h2>
           <div id='record-container'></div>
         </div>
       </body>
-
     </div>
   );
 }

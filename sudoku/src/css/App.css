@@ -1,11 +1,14 @@
 .App {
   text-align: center;
   width: 100%;
+  height: 100%;
   font-family: 'Nova Square', sans-serif;
+  background-color: #100624;
 }
 
 body {
-  background-color: #100624;
+  height: 100%;
+  width: 100%;
 }
 
 h1 {
@@ -33,9 +36,10 @@ h1 {
   grid-row: 2;
 }
 
-#start-button {
+#button-timer-container {
   grid-column: 2;
   grid-row: 1;
+  border: 1px solid white;
 }
 
 #board-container {
@@ -55,7 +59,7 @@ h1 {
 }
 
 button {
-  width: 120px;
+  width: 135px;
   height: 50px;
   margin: 15px;
   border-radius: 8%;
