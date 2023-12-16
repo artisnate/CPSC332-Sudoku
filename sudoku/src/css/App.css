@@ -37,9 +37,13 @@ h1 {
 }
 
 #button-timer-container {
+  height: 100px;
   grid-column: 2;
   grid-row: 1;
-  border: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #board-container {
@@ -55,7 +59,6 @@ h1 {
 #record-containter {
   grid-column: 3;
   grid-row: 1;
-  border: 1px solid white;
 }
 
 button {

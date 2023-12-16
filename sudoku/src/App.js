@@ -31,10 +31,22 @@ let play_board = [
 function App() {
   const [board, setBoard] = useState(new Array(9).fill().map(entry => new Array(9).fill(0))); 
   const [start, setStart] = useState(false); 
+  const [win, setWin] = useState(false); 
 
   const handleStartButtonClick = () => {
     setBoard(play_board); 
     setStart(!start); 
+  }
+
+  const handleCheckBoardClick = () => {
+    board_sol.map( function(row) {
+      row.map(function(col) {
+        if(board_sol[row][col] != play_board[row][col]) {
+          setWin(false); 
+        }
+      })
+    })
+    setWin(true); 
   }
 
   return (
@@ -55,9 +67,10 @@ function App() {
           <div id='button-timer-container'>
             <button id='start-button' onClick={() => handleStartButtonClick()}>{start ? "Pause Game" : "Start Game"}</button>
             <Timer start={start}/>
+            <button id='check-button' onClick={() => handleCheckBoardClick()}>Check Board</button>
           </div>
           <div id='board-container'>
-          <Board board={board} setBoard={setBoard}/>
+            <Board board={board} setBoard={setBoard}/>
           </div>
           <h2 id='history-title'>Game History</h2>
           <div id='record-container'></div>
