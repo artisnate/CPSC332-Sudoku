@@ -39,13 +39,14 @@ function App() {
   }
 
   const handleCheckBoardClick = () => {
-    board_sol.map( function(row) {
-      row.map(function(col) {
-        if(board_sol[row][col] != play_board[row][col]) {
+    for(let i = 0; i < 9; i++) {
+      for(let j = 0; j < 9; j++) {
+        if(board_sol[i][j] != play_board[i][j]) {
           setWin(false); 
+          console.log("lost"); 
         }
-      })
-    })
+      }
+    }
     setWin(true); 
   }
 
