@@ -2,7 +2,7 @@ import './css/App.css';
 import Board from './Board'; 
 import Instructions from './Instructions';
 import Timer from './Timer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 let board_sol = [
   [8,6,5,1,2,9,7,4,3],
@@ -32,6 +32,14 @@ function App() {
   const [board, setBoard] = useState(new Array(9).fill().map(entry => new Array(9).fill(0))); 
   const [start, setStart] = useState(false); 
   const [win, setWin] = useState(false); 
+  const [records, setRecords] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:8081/records')
+    .then(res => res.json())
+    .then(data => setRecords(data))
+    .catch(err => console.log(err)); 
+  }, [])
 
   const handleStartButtonClick = () => {
     setBoard(play_board); 
