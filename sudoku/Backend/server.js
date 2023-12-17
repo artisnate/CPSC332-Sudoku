@@ -13,9 +13,9 @@ const app = express()
 app.use(cors())
 
 const db = mysql.createConnection({
-    host: configObject['servername'], 
-    user: configObject['username'], 
-    password: configObject['password'], 
+    host: 'cps-database.gonzaga.edu', 
+    user: 'nmeshal', 
+    password: 'nmeshal26034167', 
     database: 'nmeshal_DB'
 })
 
