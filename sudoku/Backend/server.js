@@ -1,14 +1,21 @@
+import json from 'json'; 
+
 const express = require('express'); 
 const mysql = require('mysql') 
 const cors = require('cors')
+const fs = require('fs'); 
+
+const configFile = '../config.ini'; 
+const config = fs.readFileSync(configFile, 'utf8'); 
+const configObject = json.parse(config); 
 
 const app = express()
 app.use(cors())
 
 const db = mysql.createConnection({
-    host: "cps-database.gonzaga.edu", 
-    user: 'nmeshal', 
-    password: 'nmeshal26034167', 
+    host: configObject['servername'], 
+    user: configObject['username'], 
+    password: configObject['password'], 
     database: 'nmeshal_DB'
 })
 
