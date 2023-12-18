@@ -18,23 +18,25 @@ let board_sol = [
   [2,8,1,3,9,6,4,7,5]
 ]
 
-
 let play_board = [
-  ['','',5,1,'',9,7,'',''],
-  ['',3,9,'',6,'',5,1,''],
-  ['',4,'','',7,'','',6,''], 
-  ['','',8,'','','',6,'',4],
-  ['','','',6,'',8,'',9,''], 
-  ['',9,'',4,5,2,3,'',1], 
-  ['',5,'','',4,'','',2,''], 
-  ['',7,'','',8,'','',3,''],
-  ['',8,1,3,9,6,4,7,'']  
+['','',5,1,'',9,7,'',''],
+['',3,9,'',6,'',5,1,''],
+['',4,'','',7,'','',6,''], 
+['','',8,'','','',6,'',4],
+['','','',6,'',8,'',9,''], 
+['',9,'',4,5,2,3,'',1], 
+['',5,'','',4,'','',2,''], 
+['',7,'','',8,'','',3,''],
+['',8,1,3,9,6,4,7,'']  
 ]
+
+
 
 function App() {
   const [board, setBoard] = useState(new Array(9).fill().map(entry => new Array(9).fill(0))); //game board for user to play with
   const [start, setStart] = useState(false); // if the timer has been started
   const [win, setWin] = useState(true); 
+  const [modal, setModal] = useState(false); 
   const [minutes, setMinutes] = useState(0); 
   const [seconds, setSeconds] = useState(0); 
   // record object to be used in database insert. 
@@ -70,7 +72,7 @@ function App() {
       console.log(gameRecord.time); 
       axios.post('http://localhost:8081/add', gameRecord)
       .then(res => console.log(res))
-      .catch(err => console.log(err));      
+      .catch(err => console.log(err));     
     }
   }
 
