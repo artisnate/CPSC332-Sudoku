@@ -1,10 +1,10 @@
 import React, { useEffect} from "react";
 import './css/Timer.css'; 
 
-const date = new Date(); 
-let day = date.getDate();
-let month = date.getMonth() + 1; 
-let year = date.getFullYear();
+// const date = new Date(); 
+// let day = date.getDate();
+// let month = date.getMonth() + 1; 
+// let year = date.getFullYear();
 
 export default function Board({start, minutes, seconds, setSeconds, setMinutes, gameRecord, setGameRecord}) {    
     useEffect(() => {
@@ -18,9 +18,8 @@ export default function Board({start, minutes, seconds, setSeconds, setMinutes, 
             }
 
             let newTime = `00:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`; 
-            let newDate = `${year}-${month}-${day}`;
         
-            setGameRecord({...gameRecord, time: newTime, date: newDate, difficulty:"easy"});
+            setGameRecord({...gameRecord, time: newTime});
         }
     }, [start, minutes, seconds, setSeconds, setMinutes, gameRecord, setGameRecord]);
 

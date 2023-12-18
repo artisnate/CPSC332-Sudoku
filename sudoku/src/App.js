@@ -3,7 +3,7 @@ import Board from './Board';
 import Instructions from './Instructions';
 import Timer from './Timer';
 import GameRecords from './GameRecords.js';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';  
 
 let board_sol = [
@@ -19,30 +19,42 @@ let board_sol = [
 ]
 
 let play_board = [
-['','',5,1,'',9,7,'',''],
-['',3,9,'',6,'',5,1,''],
-['',4,'','',7,'','',6,''], 
-['','',8,'','','',6,'',4],
-['','','',6,'',8,'',9,''], 
-['',9,'',4,5,2,3,'',1], 
-['',5,'','',4,'','',2,''], 
-['',7,'','',8,'','',3,''],
-['',8,1,3,9,6,4,7,'']  
+  [8,6,5,1,2,9,7,4,3],
+  [7,3,9,8,6,4,5,1,2],
+  [1,4,2,5,7,3,9,6,8], 
+  [3,2,8,9,1,7,6,5,4],
+  [5,1,4,6,3,8,2,9,7], 
+  [6,9,7,4,5,2,3,8,1], 
+  [9,5,3,7,4,1,8,2,6], 
+  [4,7,6,2,8,5,1,3,9],
+  [2,8,1,3,9,6,4,7,5]
 ]
 
+// ['','',5,1,'',9,7,'',''],
+// ['',3,9,'',6,'',5,1,''],
+// ['',4,'','',7,'','',6,''], 
+// ['','',8,'','','',6,'',4],
+// ['','','',6,'',8,'',9,''], 
+// ['',9,'',4,5,2,3,'',1], 
+// ['',5,'','',4,'','',2,''], 
+// ['',7,'','',8,'','',3,''],
+// ['',8,1,3,9,6,4,7,'']  
 
+const date = new Date(); 
+let day = date.getDate();
+let month = date.getMonth() + 1; 
+let year = date.getFullYear();
 
 function App() {
   const [board, setBoard] = useState(new Array(9).fill().map(entry => new Array(9).fill(0))); //game board for user to play with
   const [start, setStart] = useState(false); // if the timer has been started
   const [win, setWin] = useState(true); 
-  const [modal, setModal] = useState(false); 
   const [minutes, setMinutes] = useState(0); 
   const [seconds, setSeconds] = useState(0); 
   // record object to be used in database insert. 
   const [gameRecord, setGameRecord] = useState({
     time: '00:00:00',
-    date: '0000-00-00',
+    date: `${year}-${month}-${day}`,
     difficulty: "easy"
   })
 
