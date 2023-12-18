@@ -1,12 +1,11 @@
-import './css/Board.css'; 
-import { useState } from "react";
+import './css/Board.css';
 
 function Board({board, setBoard}) {
 
     const handleBoxChange = (e, row, col) => {
         let newBoard = [...board]; 
         if(e.target.value <= 9 && e.target.value >= 1) {
-            newBoard[row][col] = e.target.value; 
+            newBoard[row][col] = parseInt(e.target.value); 
         }
         setBoard(newBoard); 
     };

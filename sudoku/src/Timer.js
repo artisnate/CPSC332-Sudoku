@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import './css/Timer.css'; 
 
-export default function Board({start}) {
-    const [minutes, setMinutes] = useState(0); 
-    const [seconds, setSeconds] = useState(0); 
-    
+const date = new Date(); 
+let day = date.getDate();
+let month = date.getMonth() + 1; 
+let year = date.getFullYear();
+
+export default function Board({start, minutes, seconds, setSeconds, setMinutes, gameRecord, setGameRecord}) {    
     useEffect(() => {
         if(start) {
             if(seconds > 59) {
@@ -14,8 +16,13 @@ export default function Board({start}) {
             else {
                 setTimeout(() => {setSeconds(seconds + 1)}, 1000);
             }
+
+            let newTime = `00:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`; 
+            let newDate = `${year}-${month}-${day}`;
+        
+            setGameRecord({...gameRecord, time: newTime, date: newDate, difficulty:"easy"});
         }
-    }, [start, seconds, minutes]);
+    }, [start, minutes, seconds, setSeconds, setMinutes, gameRecord, setGameRecord]);
 
     return(
         <div id="timer">

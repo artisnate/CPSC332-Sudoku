@@ -1,0 +1,22 @@
+table, th, td {
+    border: 1px solid white; 
+    border-collapse: collapse;
+}
+
+th   {
+    color: #9de2e3;
+}
+
+td {
+    color: white;
+    font-size: 15px;
+    height: 20px;
+}
+
+tr {
+    height: 20px;
+}
+
+tr td {
+    height: auto !important;
+}
